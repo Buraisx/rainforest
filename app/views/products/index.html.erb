@@ -1,0 +1,9 @@
+<%= link_to "new", new_product_path %>
+<% @products.each do |product|%>
+	<div>
+		<p><%= product.name %></p>
+		<p><%= product.description %></p>
+		<p><%= product.price %></p>
+		<%= image_tag(product.url)%>
+	</div>
+<% end %>
