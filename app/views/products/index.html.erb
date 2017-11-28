@@ -3,7 +3,7 @@
 	<div>
 		<p><%= product.name %></p>
 		<p><%= product.description %></p>
-		<p><%= product.price %></p>
+		<p>$<%= product.price %></p>
 		<%= link_to image_tag(product.url), product_path(product)%>
 	</div>
 <% end %>
