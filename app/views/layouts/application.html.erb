@@ -9,6 +9,16 @@
   </head>
 
   <body>
+  	<nav>
+  		<h2>Rainforest</h2>
+  		<ul>
+  			<li><%= link_to "Home", products_path%></li>
+  			<li><%= link_to "New", new_product_path %></li>
+  			<li>About</li>
+  			<li>Contact</li>
+
+  		</ul>
+  	</nav>
     <%= yield %>
   </body>
 </html>

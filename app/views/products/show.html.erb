@@ -6,5 +6,5 @@
 	<p>$<%= @product.price %></p>
 	<%= image_tag(@product.url)%>
 </div>
-
+<%= link_to "edit", edit_product_path %> | <%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure?" }%>
 <h1>Reviews</h1>
