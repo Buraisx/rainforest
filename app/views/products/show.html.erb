@@ -6,28 +6,8 @@
 </div>
 <%= link_to "edit", edit_product_path %> | <%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure?" }%>
 
-<h1>Reviews</h1>
-  <%= form_for([@product, @new_review]) do |f| %>
-    <% if @new_review.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@new_review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-        <ul>
-        <% @new_review.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
-    <% end %>
-
-    <div class="field">
-      <%= f.label :comment %><br />
-      <%= f.text_area :comment %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+<%= render :partial => "reviews/form" %>
 <% @reviews.each do |review| %>
 	<p><%= review.created_at %><br> <%= review.comment %></p>
+	<%= link_to "Edit", edit_product_review_path(@product,review) %>
 <% end %>
