@@ -1,0 +1,10 @@
+<%= link_to "home", products_path%>
+
+<div>
+	<p><%= @product.name %></p>
+	<p><%= @product.description %></p>
+	<p>$<%= @product.price %></p>
+	<%= image_tag(@product.url)%>
+</div>
+
+<h1>Reviews</h1>
