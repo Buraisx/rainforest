@@ -20,6 +20,7 @@ class ProductsController < ApplicationController
 		@product.url = params[:product][:url]
 
 		@product.save
+    flash[:notice] = "You have successfully created a post"
 		redirect_to(products_path)
 	end
 
@@ -42,6 +43,13 @@ class ProductsController < ApplicationController
 	def destroy
 		@products = Product.find(params[:id])
 		@products.destroy
+    flash[:notice] = "DESTROYED"
 		redirect_to(products_path)
 	end
+
+  def price_in_dollars(price)
+
+  price_dollars = price.to_f / 100
+  sprintf("$%.2f", price_dollars)
+  end
 end

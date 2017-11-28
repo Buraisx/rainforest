@@ -1,9 +1,8 @@
-<%= link_to "home", products_path%>
 
 <div>
 	<p><%= @product.name %></p>
 	<p><%= @product.description %></p>
-	<p>$<%= @product.price %></p>
+	<p>$<%= @product.price %>0</p>
 	<%= image_tag(@product.url)%>
 </div>
 <%= link_to "edit", edit_product_path %> | <%= link_to "Delete", product_path(@product), method: :delete, data: {confirm: "Are you sure?" }%>
