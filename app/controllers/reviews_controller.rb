@@ -2,9 +2,14 @@ class ReviewsController < ApplicationController
 	def create
 		@review = Review.new
 		@review.comment = params[:review][:comment]
-		@review.product_id = params[:product_id]	
-		@review.save
-		redirect_back(fallback_location: 'products#show')
+		@review.product_id = params[:product_id]
+
+		if @review.save
+			redirect_back(fallback_location: 'products#show')
+		else
+			redirect_back(fallback_location: 'products#show')
+			flash[:notice] = "Please input a correct review."
+		end
 	end
 
 	def edit
@@ -18,8 +23,12 @@ class ReviewsController < ApplicationController
 
 		@new_review.comment = params[:review][:comment]
 
-		@new_review.save
-		redirect_back(fallback_location: 'products#show')
+		if @new_review.save
+			redirect_to product_path(@product)
+			flash[:notice] = "Review Updated"
+		else
+			render :edit
+		end
 	end
 
 	def destroy
