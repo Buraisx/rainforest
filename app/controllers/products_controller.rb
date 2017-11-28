@@ -19,9 +19,12 @@ class ProductsController < ApplicationController
 		@product.price = params[:product][:price]
 		@product.url = params[:product][:url]
 
-		@product.save
-		flash[:notice] = "You have successfully created a post"
-		redirect_to(products_path)
+		if @product.save
+			flash[:notice] = "You have successfully created a post"
+			redirect_to(products_path)
+		else
+			render :new
+		end
 	end
 
 	def edit
