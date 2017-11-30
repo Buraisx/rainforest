@@ -13,3 +13,31 @@
  *= require_tree .
  *= require_self
  */
+//  html {
+//  	box-sizing: border-box;
+//  }
+
+//  *, *:before, *:after {
+//  box-sizing: inherit;
+// }
+
+h2,body{
+	margin:0px;
+}
+
+nav{
+	width:100%;
+	padding-bottom: 3%;
+	background-color:green;
+	h2{
+		display: inline-block;
+	}
+	ul{
+		float: right;
+		display:inline-block;
+		li{
+			padding: 0 3px;
+			display: inline-block;
+		}
+	}
+}

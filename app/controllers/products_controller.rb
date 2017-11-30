@@ -57,9 +57,4 @@ class ProductsController < ApplicationController
 		redirect_to(products_path)
 	end
 
-	def price_in_dollars(price)
-
-		price_dollars = price.to_f / 100
-		sprintf("$%.2f", price_dollars)
-	end
 end
